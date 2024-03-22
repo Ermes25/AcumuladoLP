@@ -1,0 +1,206 @@
+[
+    {
+        "label": "mysql.connector",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "mysql.connector",
+        "description": "mysql.connector",
+        "detail": "mysql.connector",
+        "documentation": {}
+    },
+    {
+        "label": "dao.daoConnection",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "dao.daoConnection",
+        "description": "dao.daoConnection",
+        "detail": "dao.daoConnection",
+        "documentation": {}
+    },
+    {
+        "label": "Connection",
+        "importPath": "dao.daoConnection",
+        "description": "dao.daoConnection",
+        "isExtraImport": true,
+        "detail": "dao.daoConnection",
+        "documentation": {}
+    },
+    {
+        "label": "models.clases",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "models.clases",
+        "description": "models.clases",
+        "detail": "models.clases",
+        "documentation": {}
+    },
+    {
+        "label": "Employee",
+        "importPath": "models.clases",
+        "description": "models.clases",
+        "isExtraImport": true,
+        "detail": "models.clases",
+        "documentation": {}
+    },
+    {
+        "label": "Job",
+        "importPath": "models.clases",
+        "description": "models.clases",
+        "isExtraImport": true,
+        "detail": "models.clases",
+        "documentation": {}
+    },
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "Connection",
+        "kind": 6,
+        "importPath": "dao.daoConnection",
+        "description": "dao.daoConnection",
+        "peekOfCode": "class Connection:\n    def __init__(self, host, user, password, database):\n        self.host = host\n        self.user = user\n        self.password = password\n        self.database = database\n        self.cnx = None\n        self.connect()\n    def connect(self):\n        self.cnx = mysql.connector.connect(user=self.user, password=self.password, host=self.host, database=self.database)",
+        "detail": "dao.daoConnection",
+        "documentation": {}
+    },
+    {
+        "label": "DaoCity",
+        "kind": 6,
+        "importPath": "dao.daoConnection",
+        "description": "dao.daoConnection",
+        "peekOfCode": "class DaoCity:\n    def __init__(self, connection):\n        self.connection = connection\n    def get_all(self):\n        query = 'SELECT * FROM cities'\n        return self.connection.execute_read_query(query, ())\n    def get_by_id(self, id):\n        query = 'SELECT * FROM cities WHERE id = %s'\n        return self.connection.execute_read_query(query, (id,))\n    def insert(self, city):",
+        "detail": "dao.daoConnection",
+        "documentation": {}
+    },
+    {
+        "label": "DaoJob",
+        "kind": 6,
+        "importPath": "dao.daoConnection",
+        "description": "dao.daoConnection",
+        "peekOfCode": "class DaoJob:\n    def __init__(self,connection) :\n        self.connection = connection\n    def get_all(self):\n        query = 'SELECT * FROM jobsj'\n        return self.connection.execute_read_query(query, ())\n    def get_by_id(self,id):\n        query = 'SELECT * FROM jobsj WHERE id = %s'\n        return self.connection.execute_read_query(query, (id,))\n    def insert(self, Job):",
+        "detail": "dao.daoConnection",
+        "documentation": {}
+    },
+    {
+        "label": "DaoEmploye",
+        "kind": 6,
+        "importPath": "dao.daoConnection",
+        "description": "dao.daoConnection",
+        "peekOfCode": "class DaoEmployee :\n    def __init__(self,connection) :\n        self.connection = connection\n    def get_all(self):\n        query = 'SELECT * FROM employees'\n        return self.connection.execute_read_query(query, ())\n    def get_by_id(self,id):\n        query = 'SELECT * FROM employees'\n        return self.connection.execute_read_query(query,(id))\n    def insert(self, Employee):",
+        "detail": "dao.daoConnection",
+        "documentation": {}
+    },
+    {
+        "label": "conex",
+        "kind": 5,
+        "importPath": "main.main",
+        "description": "main.main",
+        "peekOfCode": "conex = dao.Connection(\"localhost\", \"root\", \"\", \"dbregisters\")\nconex.connect()\n#instanciar modelo\ncity1 = c.City(\"Managua\", 1)\ncity2 = c.City(\"León\", 1)\ncity3 = c.City(\"Granada\", 1)\ncity4 = c.City(\"Masaya\", 1)\ncity5 = c.City(\"Estelí\", 1)\ncity6 = c.City(\"Jinotepe\", 1)\n#instanciar dao",
+        "detail": "main.main",
+        "documentation": {}
+    },
+    {
+        "label": "city1",
+        "kind": 5,
+        "importPath": "main.main",
+        "description": "main.main",
+        "peekOfCode": "city1 = c.City(\"Managua\", 1)\ncity2 = c.City(\"León\", 1)\ncity3 = c.City(\"Granada\", 1)\ncity4 = c.City(\"Masaya\", 1)\ncity5 = c.City(\"Estelí\", 1)\ncity6 = c.City(\"Jinotepe\", 1)\n#instanciar dao\ndaoCity = dao.DaoCity(conex)\n#insertar\ndaoCity.insert(city1)",
+        "detail": "main.main",
+        "documentation": {}
+    },
+    {
+        "label": "city2",
+        "kind": 5,
+        "importPath": "main.main",
+        "description": "main.main",
+        "peekOfCode": "city2 = c.City(\"León\", 1)\ncity3 = c.City(\"Granada\", 1)\ncity4 = c.City(\"Masaya\", 1)\ncity5 = c.City(\"Estelí\", 1)\ncity6 = c.City(\"Jinotepe\", 1)\n#instanciar dao\ndaoCity = dao.DaoCity(conex)\n#insertar\ndaoCity.insert(city1)\ndaoCity.insert(city2)",
+        "detail": "main.main",
+        "documentation": {}
+    },
+    {
+        "label": "city3",
+        "kind": 5,
+        "importPath": "main.main",
+        "description": "main.main",
+        "peekOfCode": "city3 = c.City(\"Granada\", 1)\ncity4 = c.City(\"Masaya\", 1)\ncity5 = c.City(\"Estelí\", 1)\ncity6 = c.City(\"Jinotepe\", 1)\n#instanciar dao\ndaoCity = dao.DaoCity(conex)\n#insertar\ndaoCity.insert(city1)\ndaoCity.insert(city2)\ndaoCity.insert(city3)",
+        "detail": "main.main",
+        "documentation": {}
+    },
+    {
+        "label": "city4",
+        "kind": 5,
+        "importPath": "main.main",
+        "description": "main.main",
+        "peekOfCode": "city4 = c.City(\"Masaya\", 1)\ncity5 = c.City(\"Estelí\", 1)\ncity6 = c.City(\"Jinotepe\", 1)\n#instanciar dao\ndaoCity = dao.DaoCity(conex)\n#insertar\ndaoCity.insert(city1)\ndaoCity.insert(city2)\ndaoCity.insert(city3)\ndaoCity.insert(city4)",
+        "detail": "main.main",
+        "documentation": {}
+    },
+    {
+        "label": "city5",
+        "kind": 5,
+        "importPath": "main.main",
+        "description": "main.main",
+        "peekOfCode": "city5 = c.City(\"Estelí\", 1)\ncity6 = c.City(\"Jinotepe\", 1)\n#instanciar dao\ndaoCity = dao.DaoCity(conex)\n#insertar\ndaoCity.insert(city1)\ndaoCity.insert(city2)\ndaoCity.insert(city3)\ndaoCity.insert(city4)\ndaoCity.insert(city5)",
+        "detail": "main.main",
+        "documentation": {}
+    },
+    {
+        "label": "city6",
+        "kind": 5,
+        "importPath": "main.main",
+        "description": "main.main",
+        "peekOfCode": "city6 = c.City(\"Jinotepe\", 1)\n#instanciar dao\ndaoCity = dao.DaoCity(conex)\n#insertar\ndaoCity.insert(city1)\ndaoCity.insert(city2)\ndaoCity.insert(city3)\ndaoCity.insert(city4)\ndaoCity.insert(city5)\ndaoCity.insert(city6)",
+        "detail": "main.main",
+        "documentation": {}
+    },
+    {
+        "label": "daoCity",
+        "kind": 5,
+        "importPath": "main.main",
+        "description": "main.main",
+        "peekOfCode": "daoCity = dao.DaoCity(conex)\n#insertar\ndaoCity.insert(city1)\ndaoCity.insert(city2)\ndaoCity.insert(city3)\ndaoCity.insert(city4)\ndaoCity.insert(city5)\ndaoCity.insert(city6)\n#consultar\ncities = daoCity.get_all()",
+        "detail": "main.main",
+        "documentation": {}
+    },
+    {
+        "label": "cities",
+        "kind": 5,
+        "importPath": "main.main",
+        "description": "main.main",
+        "peekOfCode": "cities = daoCity.get_all()\nfor city in cities:\n    print(city)",
+        "detail": "main.main",
+        "documentation": {}
+    },
+    {
+        "label": "City",
+        "kind": 6,
+        "importPath": "models.clases",
+        "description": "models.clases",
+        "peekOfCode": "class City:\n    def __init__(self, name, status):\n        self.name = name\n        self.status = status\n    def __str__(self):\n        return self.name\nclass Job:\n    def __init__(self, name, status):\n        self.name = name\n        self.status = status",
+        "detail": "models.clases",
+        "documentation": {}
+    },
+    {
+        "label": "Job",
+        "kind": 6,
+        "importPath": "models.clases",
+        "description": "models.clases",
+        "peekOfCode": "class Job:\n    def __init__(self, name, status):\n        self.name = name\n        self.status = status\n    def __str__(self):\n        return self.name\nclass Employee:\n    def __init__(self, first_name, last_name, city, job, salary, status):\n        self.first_name = first_name\n        self.last_name = last_name",
+        "detail": "models.clases",
+        "documentation": {}
+    },
+    {
+        "label": "Employee",
+        "kind": 6,
+        "importPath": "models.clases",
+        "description": "models.clases",
+        "peekOfCode": "class Employee:\n    def __init__(self, first_name, last_name, city, job, salary, status):\n        self.first_name = first_name\n        self.last_name = last_name\n        self.city = city\n        self.job = job\n        self.salary = salary\n        self.status = status\n    def __str__(self):\n        return self.first_name + ' ' + self.last_name",
+        "detail": "models.clases",
+        "documentation": {}
+    }
+]
