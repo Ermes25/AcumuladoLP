@@ -9,54 +9,37 @@
         "documentation": {}
     },
     {
-        "label": "dao.daoConnection",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "dao.daoConnection",
-        "description": "dao.daoConnection",
-        "detail": "dao.daoConnection",
-        "documentation": {}
-    },
-    {
-        "label": "Connection",
-        "importPath": "dao.daoConnection",
-        "description": "dao.daoConnection",
-        "isExtraImport": true,
-        "detail": "dao.daoConnection",
-        "documentation": {}
-    },
-    {
-        "label": "models.clases",
-        "kind": 6,
-        "isExtraImport": true,
-        "importPath": "models.clases",
-        "description": "models.clases",
-        "detail": "models.clases",
-        "documentation": {}
-    },
-    {
-        "label": "Employee",
-        "importPath": "models.clases",
-        "description": "models.clases",
-        "isExtraImport": true,
-        "detail": "models.clases",
-        "documentation": {}
-    },
-    {
-        "label": "Job",
-        "importPath": "models.clases",
-        "description": "models.clases",
-        "isExtraImport": true,
-        "detail": "models.clases",
-        "documentation": {}
-    },
-    {
         "label": "os",
         "kind": 6,
         "isExtraImport": true,
         "importPath": "os",
         "description": "os",
         "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "sys",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sys",
+        "description": "sys",
+        "detail": "sys",
+        "documentation": {}
+    },
+    {
+        "label": "daoConnection",
+        "importPath": "dao",
+        "description": "dao",
+        "isExtraImport": true,
+        "detail": "dao",
+        "documentation": {}
+    },
+    {
+        "label": "clases",
+        "importPath": "models",
+        "description": "models",
+        "isExtraImport": true,
+        "detail": "models",
         "documentation": {}
     },
     {
@@ -96,83 +79,65 @@
         "documentation": {}
     },
     {
+        "label": "insertarciudad",
+        "kind": 2,
+        "importPath": "main.main",
+        "description": "main.main",
+        "peekOfCode": "def insertarciudad():\n    name = input(\"Ingrese el Nombre de la Ciudad\")\n    ciudad = c.City(name,1)\n    daoCity = daoConnection.DaoCity(conex)\n    #insertar \n    daoCity.insert(ciudad)\ndef MostrarCiudad():\n    daoCity = daoConnection.DaoCity(conex)\n    cities = daoCity.get_all()\n    for City in cities :",
+        "detail": "main.main",
+        "documentation": {}
+    },
+    {
+        "label": "MostrarCiudad",
+        "kind": 2,
+        "importPath": "main.main",
+        "description": "main.main",
+        "peekOfCode": "def MostrarCiudad():\n    daoCity = daoConnection.DaoCity(conex)\n    cities = daoCity.get_all()\n    for City in cities :\n        print(City)\ndef EliminarCiudad():\n    NameEliminar = input(\"Elija el ID de la Ciudad que deseas Eliminar\")\n    daoCity = daoConnection.DaoCity(conex)\n    daoCity.delete(NameEliminar)\ndef buscarCiudad():",
+        "detail": "main.main",
+        "documentation": {}
+    },
+    {
+        "label": "EliminarCiudad",
+        "kind": 2,
+        "importPath": "main.main",
+        "description": "main.main",
+        "peekOfCode": "def EliminarCiudad():\n    NameEliminar = input(\"Elija el ID de la Ciudad que deseas Eliminar\")\n    daoCity = daoConnection.DaoCity(conex)\n    daoCity.delete(NameEliminar)\ndef buscarCiudad():\n    idBuscarCiudad = input(\"Elije el ID de la ciudad que deseas buscar \")\n    daoCity = daoConnection.DaoCity(conex)\n    cities = daoCity.get_by_id(idBuscarCiudad)\n    print(cities)\ndef menu():",
+        "detail": "main.main",
+        "documentation": {}
+    },
+    {
+        "label": "buscarCiudad",
+        "kind": 2,
+        "importPath": "main.main",
+        "description": "main.main",
+        "peekOfCode": "def buscarCiudad():\n    idBuscarCiudad = input(\"Elije el ID de la ciudad que deseas buscar \")\n    daoCity = daoConnection.DaoCity(conex)\n    cities = daoCity.get_by_id(idBuscarCiudad)\n    print(cities)\ndef menu():\n    print(\"1. Ingresa la Ciudad\")\n    print(\"2. Mostrar Ciudad\")\n    print(\"3. Eliminar Ciudad\")\n    print(\"4. Editar Ciudad\")",
+        "detail": "main.main",
+        "documentation": {}
+    },
+    {
+        "label": "menu",
+        "kind": 2,
+        "importPath": "main.main",
+        "description": "main.main",
+        "peekOfCode": "def menu():\n    print(\"1. Ingresa la Ciudad\")\n    print(\"2. Mostrar Ciudad\")\n    print(\"3. Eliminar Ciudad\")\n    print(\"4. Editar Ciudad\")\n    print(\"5. Buscar Ciudad\")\n    print(\"6. Salir\")\ndef main():\n    opcion = 0\n    while(opcion != 6):",
+        "detail": "main.main",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "main.main",
+        "description": "main.main",
+        "peekOfCode": "def main():\n    opcion = 0\n    while(opcion != 6):\n        menu()\n        opcion = int(input(\"Ingrese tu Opcion\"))\n        if(opcion == 1):\n            insertarciudad()\n            os.system(\"pause\")\n        elif(opcion == 2):\n            MostrarCiudad()",
+        "detail": "main.main",
+        "documentation": {}
+    },
+    {
         "label": "conex",
         "kind": 5,
         "importPath": "main.main",
         "description": "main.main",
-        "peekOfCode": "conex = dao.Connection(\"localhost\", \"root\", \"\", \"dbregisters\")\nconex.connect()\n#instanciar modelo\ncity1 = c.City(\"Managua\", 1)\ncity2 = c.City(\"León\", 1)\ncity3 = c.City(\"Granada\", 1)\ncity4 = c.City(\"Masaya\", 1)\ncity5 = c.City(\"Estelí\", 1)\ncity6 = c.City(\"Jinotepe\", 1)\n#instanciar dao",
-        "detail": "main.main",
-        "documentation": {}
-    },
-    {
-        "label": "city1",
-        "kind": 5,
-        "importPath": "main.main",
-        "description": "main.main",
-        "peekOfCode": "city1 = c.City(\"Managua\", 1)\ncity2 = c.City(\"León\", 1)\ncity3 = c.City(\"Granada\", 1)\ncity4 = c.City(\"Masaya\", 1)\ncity5 = c.City(\"Estelí\", 1)\ncity6 = c.City(\"Jinotepe\", 1)\n#instanciar dao\ndaoCity = dao.DaoCity(conex)\n#insertar\ndaoCity.insert(city1)",
-        "detail": "main.main",
-        "documentation": {}
-    },
-    {
-        "label": "city2",
-        "kind": 5,
-        "importPath": "main.main",
-        "description": "main.main",
-        "peekOfCode": "city2 = c.City(\"León\", 1)\ncity3 = c.City(\"Granada\", 1)\ncity4 = c.City(\"Masaya\", 1)\ncity5 = c.City(\"Estelí\", 1)\ncity6 = c.City(\"Jinotepe\", 1)\n#instanciar dao\ndaoCity = dao.DaoCity(conex)\n#insertar\ndaoCity.insert(city1)\ndaoCity.insert(city2)",
-        "detail": "main.main",
-        "documentation": {}
-    },
-    {
-        "label": "city3",
-        "kind": 5,
-        "importPath": "main.main",
-        "description": "main.main",
-        "peekOfCode": "city3 = c.City(\"Granada\", 1)\ncity4 = c.City(\"Masaya\", 1)\ncity5 = c.City(\"Estelí\", 1)\ncity6 = c.City(\"Jinotepe\", 1)\n#instanciar dao\ndaoCity = dao.DaoCity(conex)\n#insertar\ndaoCity.insert(city1)\ndaoCity.insert(city2)\ndaoCity.insert(city3)",
-        "detail": "main.main",
-        "documentation": {}
-    },
-    {
-        "label": "city4",
-        "kind": 5,
-        "importPath": "main.main",
-        "description": "main.main",
-        "peekOfCode": "city4 = c.City(\"Masaya\", 1)\ncity5 = c.City(\"Estelí\", 1)\ncity6 = c.City(\"Jinotepe\", 1)\n#instanciar dao\ndaoCity = dao.DaoCity(conex)\n#insertar\ndaoCity.insert(city1)\ndaoCity.insert(city2)\ndaoCity.insert(city3)\ndaoCity.insert(city4)",
-        "detail": "main.main",
-        "documentation": {}
-    },
-    {
-        "label": "city5",
-        "kind": 5,
-        "importPath": "main.main",
-        "description": "main.main",
-        "peekOfCode": "city5 = c.City(\"Estelí\", 1)\ncity6 = c.City(\"Jinotepe\", 1)\n#instanciar dao\ndaoCity = dao.DaoCity(conex)\n#insertar\ndaoCity.insert(city1)\ndaoCity.insert(city2)\ndaoCity.insert(city3)\ndaoCity.insert(city4)\ndaoCity.insert(city5)",
-        "detail": "main.main",
-        "documentation": {}
-    },
-    {
-        "label": "city6",
-        "kind": 5,
-        "importPath": "main.main",
-        "description": "main.main",
-        "peekOfCode": "city6 = c.City(\"Jinotepe\", 1)\n#instanciar dao\ndaoCity = dao.DaoCity(conex)\n#insertar\ndaoCity.insert(city1)\ndaoCity.insert(city2)\ndaoCity.insert(city3)\ndaoCity.insert(city4)\ndaoCity.insert(city5)\ndaoCity.insert(city6)",
-        "detail": "main.main",
-        "documentation": {}
-    },
-    {
-        "label": "daoCity",
-        "kind": 5,
-        "importPath": "main.main",
-        "description": "main.main",
-        "peekOfCode": "daoCity = dao.DaoCity(conex)\n#insertar\ndaoCity.insert(city1)\ndaoCity.insert(city2)\ndaoCity.insert(city3)\ndaoCity.insert(city4)\ndaoCity.insert(city5)\ndaoCity.insert(city6)\n#consultar\ncities = daoCity.get_all()",
-        "detail": "main.main",
-        "documentation": {}
-    },
-    {
-        "label": "cities",
-        "kind": 5,
-        "importPath": "main.main",
-        "description": "main.main",
-        "peekOfCode": "cities = daoCity.get_all()\nfor city in cities:\n    print(city)",
+        "peekOfCode": "conex = daoConnection.Connection(\"localhost\", \"root\", \"\", \"dbregisters\")\nconex.connect()\ndef insertarciudad():\n    name = input(\"Ingrese el Nombre de la Ciudad\")\n    ciudad = c.City(name,1)\n    daoCity = daoConnection.DaoCity(conex)\n    #insertar \n    daoCity.insert(ciudad)\ndef MostrarCiudad():\n    daoCity = daoConnection.DaoCity(conex)",
         "detail": "main.main",
         "documentation": {}
     },
@@ -181,7 +146,7 @@
         "kind": 6,
         "importPath": "models.clases",
         "description": "models.clases",
-        "peekOfCode": "class City:\n    def __init__(self, name, status):\n        self.name = name\n        self.status = status\n    def __str__(self):\n        return self.name\nclass Job:\n    def __init__(self, name, status):\n        self.name = name\n        self.status = status",
+        "peekOfCode": "class City:\n    def __init__(self, name, status, id):\n        self.name = name\n        self.status = status\n        self.id = id\n    def __str__(self):\n        return self.name\nclass Job:\n    def __init__(self, name, status):\n        self.name = name",
         "detail": "models.clases",
         "documentation": {}
     },
@@ -190,7 +155,7 @@
         "kind": 6,
         "importPath": "models.clases",
         "description": "models.clases",
-        "peekOfCode": "class Job:\n    def __init__(self, name, status):\n        self.name = name\n        self.status = status\n    def __str__(self):\n        return self.name\nclass Employee:\n    def __init__(self, first_name, last_name, city, job, salary, status):\n        self.first_name = first_name\n        self.last_name = last_name",
+        "peekOfCode": "class Job:\n    def __init__(self, name, status):\n        self.name = name\n        self.status = status\n    def __str__(self):\n        return self.name\nclass Employee:\n    def __init__(self, nombre, ciudad_id, jobs_id, salary, status):\n        self.nombre = nombre\n        self.ciudad_id = ciudad_id ",
         "detail": "models.clases",
         "documentation": {}
     },
@@ -199,7 +164,7 @@
         "kind": 6,
         "importPath": "models.clases",
         "description": "models.clases",
-        "peekOfCode": "class Employee:\n    def __init__(self, first_name, last_name, city, job, salary, status):\n        self.first_name = first_name\n        self.last_name = last_name\n        self.city = city\n        self.job = job\n        self.salary = salary\n        self.status = status\n    def __str__(self):\n        return self.first_name + ' ' + self.last_name",
+        "peekOfCode": "class Employee:\n    def __init__(self, nombre, ciudad_id, jobs_id, salary, status):\n        self.nombre = nombre\n        self.ciudad_id = ciudad_id \n        self.jobs_id = jobs_id\n        self.salary = salary\n        self.status = status\n    def __str__(self):\n        return self.name\n    def get_full_name(self):",
         "detail": "models.clases",
         "documentation": {}
     }

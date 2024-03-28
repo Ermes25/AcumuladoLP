@@ -4,13 +4,81 @@ sys.path.append(r"C:\Users\ermes\OneDrive\Documentos\LENGUAJES DE PROGRAMACION\S
 from dao import daoConnection
 from models import clases as c
 
-
-
-
 os.system('cls')
 
 conex = daoConnection.Connection("localhost", "root", "", "dbregisters")
 conex.connect()
+
+def insertarciudad():
+    name = input("Ingrese el Nombre de la Ciudad")
+    ciudad = c.City(name,1)
+    daoCity = daoConnection.DaoCity(conex)
+    #insertar 
+    daoCity.insert(ciudad)
+
+def MostrarCiudad():
+    
+    daoCity = daoConnection.DaoCity(conex)
+
+    cities = daoCity.get_all()
+    for City in cities :
+        print(City)
+
+def EliminarCiudad():
+    NameEliminar = input("Elija el ID de la Ciudad que deseas Eliminar")
+    daoCity = daoConnection.DaoCity(conex)
+    daoCity.delete(NameEliminar)
+
+def buscarCiudad():
+    idBuscarCiudad = input("Elije el ID de la ciudad que deseas buscar ")
+    daoCity = daoConnection.DaoCity(conex)
+    cities = daoCity.get_by_id(idBuscarCiudad)
+    print(cities)
+
+def menu():
+    print("1. Ingresa la Ciudad")
+    print("2. Mostrar Ciudad")
+    print("3. Eliminar Ciudad")
+    print("4. Editar Ciudad")
+    print("5. Buscar Ciudad")
+    print("6. Salir")
+
+def main():
+    opcion = 0
+    while(opcion != 6):
+        menu()
+        opcion = int(input("Ingrese tu Opcion"))
+        if(opcion == 1):
+            insertarciudad()
+            os.system("pause")
+        elif(opcion == 2):
+            MostrarCiudad()
+            os.system("pause")
+        elif(opcion == 3):
+            EliminarCiudad()
+            os.system("pause")
+        elif(opcion == 5):
+            buscarCiudad()
+            os.system("pause")
+
+
+main()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 # def insertarCiudad()
