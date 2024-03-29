@@ -11,7 +11,7 @@ conex.connect()
 
 def insertarciudad():
     name = input("Ingrese el Nombre de la Ciudad")
-    ciudad = c.City(name,1)
+    ciudad = c.City(name, 1, any)
     daoCity = daoConnection.DaoCity(conex)
     #insertar 
     daoCity.insert(ciudad)
@@ -35,6 +35,16 @@ def buscarCiudad():
     cities = daoCity.get_by_id(idBuscarCiudad)
     print(cities)
 
+def editarCiudad():
+    os.system("cls")
+    MostrarCiudad()
+    id_sec = int(input("Que id deseas actualizar"))
+    name_new = input("Nuevo nombre : ")
+    status_new = input("Nuevo status : ")
+    daoCity = daoConnection.DaoCity(conex)
+    ciudad = c.City(name_new,status_new, id_sec)
+    daoCity.update(ciudad)
+
 def menu():
     print("1. Ingresa la Ciudad")
     print("2. Mostrar Ciudad")
@@ -57,9 +67,13 @@ def main():
         elif(opcion == 3):
             EliminarCiudad()
             os.system("pause")
+        elif(opcion == 4):
+            editarCiudad()
+            os.system("pause")
         elif(opcion == 5):
             buscarCiudad()
             os.system("pause")
+        
 
 
 main()
