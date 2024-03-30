@@ -87,8 +87,8 @@ class DaoEmployee :
         return self.connection.execute_read_query(query, ())
     
     def get_by_id(self,id):
-        query = 'SELECT * FROM employees'
-        return self.connection.execute_read_query(query,(id))
+        query = 'SELECT * FROM employees WHERE id = %s'
+        return self.connection.execute_read_query(query,(id,))
 
     def insert(self, Employee):
         query = 'INSERT INTO employees (nombre,ciudad_id,jobs_id,salary,status) VALUES (%s, %s, %s, %s, %s)'

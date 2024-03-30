@@ -8,20 +8,22 @@ class City:
         return self.name
     
 class Job:
-    def __init__(self, name, status):
+    def __init__(self, name, status, id):
         self.name = name
         self.status = status
+        self.id = id
 
     def __str__(self):
         return self.name
     
 class Employee:
-    def __init__(self, nombre, ciudad_id, jobs_id, salary, status):
+    def __init__(self, nombre, ciudad_id, jobs_id, salary, status, id):
         self.nombre = nombre
         self.ciudad_id = ciudad_id 
         self.jobs_id = jobs_id
         self.salary = salary
         self.status = status
+        self.id = id
     
     def __str__(self):
         return self.name
