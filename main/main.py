@@ -96,12 +96,12 @@ def MostrarJob():
         print(jobsj)
 #DELETE JOB
 def EliminarJob():
-    NameJobEliminar = input("Ingresa el ID del Trabajo que desea Eliminar")
+    NameJobEliminar = input("Ingresa el ID del Trabajo que desea Eliminar :  ")
     daoJob = daoConnection.DaoJob(conex)
     daoJob.delete(NameJobEliminar)
 #SEARCH JOB
 def buscarJob():
-    idBuscarJob = input("Elija el id del trabajo que desea buscar")
+    idBuscarJob = input("Elija el id del trabajo que desea buscar : ")
     daoJob = daoConnection.DaoJob(conex)
     jobs = daoJob.get_by_id(idBuscarJob)
     print(jobs)
@@ -109,8 +109,8 @@ def buscarJob():
 def editarJob():
     os.system("cls")
     MostrarJob()
-    id_job_sec = int(input("Que id deseas actualizar"))
-    name_new_job = input("Nuevo trbajo:  ")
+    id_job_sec = int(input("Que id deseas actualizar : "))
+    name_new_job = input("Nuevo trabajo :  ")
     status_new = input("Nuevo status : ")
     daoJob = daoConnection.DaoJob(conex)
     trabajo = c.Job(name_new_job,status_new,id_job_sec)
@@ -147,14 +147,14 @@ def main_Jobs():
 #INSERT EMPLOYEES
 def insertarEmployees():
     os.system("cls")
-    name_employee = input("Ingresa el Nombre del Empleado")
+    name_employee = input("Ingresa el Nombre del Empleado : ")
     os.system("cls")
     idciudad= MostrarCiudad()
-    idciudad = int(input("Elige un id de Ciudad para el empleado"))
+    idciudad = int(input("Elige un id de Ciudad para el empleado : "))
     os.system("cls")
     idJob= MostrarJob()
-    idJob = int(input("Elige un id de trabajo para el Empleado"))
-    salario = int(input("Ingresa el Salario del empleado"))
+    idJob = int(input("Elige un id de trabajo para el Empleado : "))
+    salario = int(input("Ingresa el Salario del empleado : "))
     
     empleado = c.Employee(name_employee,idciudad,idJob,salario,1,any)
     daoEmployee = daoConnection.DaoEmployee(conex)
@@ -168,13 +168,13 @@ def mostrarEmpleado():
 #DELETE EMPLOYEE
 def EliminarEmployee():
     os.system("cls")
-    ned = input("Ingresa el id del Empleado que desea Eliminar")
+    ned = input("Ingresa el id del Empleado que desea Eliminar : ")
     daoEmployee = daoConnection.DaoEmployee(conex)
     daoEmployee.delete(ned)
 #SEARCH EMPLOYEE
 def buscarEmployee():
     os.system("cls")
-    id_employee_search = input("Elija el id que desea buscar")
+    id_employee_search = input("Elija el id que desea buscar : ")
     daoEmployee = daoConnection.DaoEmployee(conex)
     Employee = daoEmployee.get_by_id(id_employee_search)
     print(Employee)
@@ -182,14 +182,14 @@ def buscarEmployee():
 def editarEmployee():
     os.system("cls")
     mostrarEmpleado()
-    ieo = int(input("Que id desea actualizar"))
+    ieo = int(input("Que id desea actualizar : "))
     n_new_employee = input("nuevo empleado : ")
     os.system("cls")
     n_new_idCiudad = MostrarCiudad()
-    n_new_idCiudad = input("nuevo id de ciudad para el empleado")
+    n_new_idCiudad = input("nuevo id de ciudad para el empleado : ")
     os.system("cls")
     n_new_idJob = MostrarJob()
-    n_new_idJob = input("nuevo id de trabajo para el Empleado")
+    n_new_idJob = input("nuevo id de trabajo para el Empleado : ")
     os.system("cls")
     status_new = input("nuevo status : ")
     new_salario = int(input("Nuevo salario : "))
